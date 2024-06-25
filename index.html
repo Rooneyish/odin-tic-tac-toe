@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Odin-Tic-Tac-Toe</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Tic-Tac-Toe</h1>
-    <div id="gameboard">
-    </div>
-    <form action="" id="players">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <h1>Tic-Tac-Toe</h1>
+      <div id="gameboard"></div>
+      <form action="" id="players">
         <div class="players-input">
-            <label for="player1">
-                Player 1 <br>
-                <input type="text" name="player1" id="player1">
-            </label>
-            <label for="player2">
-                Player 2 <br>
-                <input type="text" name="player2" id="player2">
-            </label>
+          <label for="player1">
+            Player 1 <br />
+            <input type="text" name="player1" id="player1" />
+          </label>
+          <label for="player2">
+            Player 2 <br />
+            <input type="text" name="player2" id="player2" />
+          </label>
         </div>
-        <div>
-            <button type="submit">Start</button>
-            <button>Restart</button>
+        <div class="buttons">
+          <button type="submit">Start</button>
+          <button>Restart</button>
         </div>
-    </form>
-    <div class="message"></div>
+      </form>
+      <div class="message"></div>
+    </div>
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>
