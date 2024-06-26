@@ -27,23 +27,24 @@
             <div style="margin-top: 10px; display: flex; gap: 20px; justify-content: center;">
               <label for="X" class="container">
                 X
-                <input type="radio" name="radio" checked="checked" id="X" value="X" />
+                <input type="radio" name="symbol" checked="checked" id="X" value="X" />
                 <span class="checkmark"></span>
               </label>
               <label for="O" class="container">
                 O
-                <input type="radio" name="radio" id="O" value="O" />
+                <input type="radio" name="symbol" id="O" value="O" />
                 <span class="checkmark"></span>
               </label>
             </div>
           </label>
         </div>
         <div class="buttons">
-          <button type="submit">Start</button>
-          <button>Restart</button>
+          <button type="submit" id="start">Start</button>
+          <button id="restart">Restart</button>
         </div>
       </form>
-      <div class="message"></div>
+      <div class="message">
+      </div>
     </div>
     <script src="./script.js"></script>
   </body>
