@@ -50,6 +50,14 @@ const Gameboard = (function () {
       event.preventDefault();
       this.player1=this.player1Name.value;
       this.player2=this.player2Name.value;
+      if(!this.player1 || !this.player2){
+        this.message.innerHTML = 'Player names cannot be empty!';
+        return;
+      }
+      this.gameStarted=true;
+      this.currentPlayer='X'
+      this.gameboard=["","","","","","","","",""]
+      this.render()
       this.message.innerHTML=`Lets play the game!!! ${this.player1}'s turn.`
       this.clearTextField();
     },
@@ -63,16 +71,39 @@ const Gameboard = (function () {
     },
 
     handleClickTurn:function(event){
+      if(!this.gameStarted)return;
       const index=event.target.dataset.index;
       if(this.gameboard[index]===''){
         this.gameboard[index]=this.currentPlayer;
         this.currentPlayer=this.currentPlayer==="X"?"0":'X';
-        this.render()
+        this.render();
+        if(this.checkWinner()===true){
+          this.message.innerHTML=`${this.currentPlayer==='X'?this.player2:this.player1} wins!!!`;
+          this.board.removeEventListener('click', this.handleClickTurn.bind(this));
+          setTimeout(()=>{
+            this.currentPlayer='X'
+          this.gameboard=["","","","","","","","",""]
+          this.render()
+          },1000)
+        }
+        else{
+          this.message.innerHTML=this.currentPlayer==='X'? `${this.player1}'s Turn!!!`:`${this.player2}'s Turn!!!`
+        }
       }
     },
 
     checkWinner: function(){
-
+      const winnerCombinations=[
+      [0, 1, 2], [3, 4, 5], [6, 7, 8], 
+      [0, 3, 6], [1, 4, 7], [2, 5, 8],
+      [0, 4, 8], [2, 4, 6]]
+      for(let i=0;i<winnerCombinations.length;i++){
+        const [a,b,c] =winnerCombinations[i]
+        if(this.gameboard[a] && this.gameboard[a]===this.gameboard[b] && this.gameboard[a] === this.gameboard[c]){
+          return true;
+        }
+      }
+      return false;
     }
 
   };
